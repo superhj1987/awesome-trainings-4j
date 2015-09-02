@@ -1,4 +1,4 @@
-package com.github.superhj1987.advance;
+package com.github.superhj1987.cl;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,10 +30,10 @@ public class ClassLoaderTest {
             }
         };
 
-        Object obj = myLoader.loadClass("com.github.superhj1987.ClassLoaderTest").newInstance();
+        Object obj = myLoader.loadClass("com.github.superhj1987.cl.ClassLoaderTest").newInstance();
 
         System.out.println(obj.getClass());
-        System.out.println(obj instanceof com.github.superhj1987.advance.ClassLoaderTest);
+        System.out.println(obj instanceof com.github.superhj1987.cl.ClassLoaderTest);
 
     }
 
