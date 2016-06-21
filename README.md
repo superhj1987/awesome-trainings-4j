@@ -2,10 +2,13 @@
 
 my practice space including some example and so on
 
+## 一. Tomcat的简单实现
 
-## Netty学习笔记
+com.github.superhj1987.trainings.tomcattest.*
 
-com.github.superhj1987.netty.*
+## 二. Netty学习笔记
+
+com.github.superhj1987.trainings.netty.*
 
 ### 《Netty 权威指南》
 
@@ -13,8 +16,7 @@ com.github.superhj1987.netty.*
 
 试着按照14章的代码写了一下，发现各种错误。实在是想不通作者怎么运行成功的。故修改了一下代码使其正常运行。
 
-代码可见 me.srhang.server.NettyServer me.srhang.client.NettyClient 以及其他相关代码
-
+代码可见 com.github.superhj1987.trainings.netty.server.NettyServer com.github.superhj1987.trainings.netty.client.NettyClient 以及其他相关代码
 
 ### Spring注解上下文配置
 
