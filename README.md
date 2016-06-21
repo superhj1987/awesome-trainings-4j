@@ -35,9 +35,3 @@ Spring 3.0支持了纯注解配置，即一个xml都不需要，完全把配置�
 4. EventLoop 和 EventLoopGroup
 
 5. Future 和 Promise
-
-### Doc
-
-学习笔记
-
-- [网络I/O模型](doc/IO-model.md)
