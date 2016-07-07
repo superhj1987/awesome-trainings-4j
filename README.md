@@ -1,6 +1,6 @@
-# awesome-trainging
+# awesome-trainings-4j
 
-my practice space including some example and so on
+my practice space including some example, some usefule code in Java.
 
 ## 一. Tomcat的简单实现
 
