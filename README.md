@@ -1,6 +1,6 @@
 # awesome-trainings-4j
 
-my practice space including some example, some usefule code in Java.
+my practice space including some example, some useful codes in Java.
 
 ## 一. Tomcat的简单实现
 
