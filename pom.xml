@@ -20,15 +20,6 @@
 
     <repositories>
         <repository>
-            <id>opensesame</id>
-            <name>Alibaba OpenSource Repsoitory</name>
-            <url>http://code.alibabatech.com/mvn/releases/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        
-        <repository>
             <id>maven</id>
             <name>Slowly office site</name>
             <url>http://repo1.maven.org/maven2</url>
