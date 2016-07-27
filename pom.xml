@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>superhj1987.github.com</groupId>
-    <artifactId>practice_space</artifactId>
+    <artifactId>awesome-trainings-4j</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <!-- Shared version number properties -->
@@ -13,21 +13,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.springframework.version>4.0.7.RELEASE</org.springframework.version>
         <netty.version>4.0.9.Final</netty.version>
+        <scala.version>2.10.4</scala.version>
+        <scala.tools.version>2.10</scala.tools.version>
+        <scalatest.output>WD</scalatest.output>
     </properties>
 
     <repositories>
-        <repository>
-            <id>nexus</id>
-            <name>local private nexus</name>
-            <url>http://maven.oschina.net/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-
         <repository>
             <id>opensesame</id>
             <name>Alibaba OpenSource Repsoitory</name>
@@ -42,7 +33,21 @@
             <name>Slowly office site</name>
             <url>http://repo1.maven.org/maven2</url>
         </repository>
+
+        <repository>
+            <id>typesafe</id>
+            <name>Typesafe Repository</name>
+            <url>http://repo.typesafe.com/typesafe/releases/</url>
+        </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>scala-tools.org</id>
+            <name>Scala-tools Maven2 Repository</name>
+            <url>http://scala-tools.org/repo-releases</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencies>
         <dependency>
@@ -115,25 +120,106 @@
             <version>1.0.6</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_${scala.tools.version}</artifactId>
+            <version>2.1.2</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 
     <build>
-        <finalName>practice_space</finalName>
         <plugins>
             <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>3.1.6</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <launchers>
+                        <launcher>
+                            <id>TestActorSystem</id>
+                            <mainClass>org.akka.essentials.scala.future.example.TestActorSystem</mainClass>
+                            <!-- args are optional -->
+                            <!--                            <args>
+                                                            <arg>arg1</arg>
+                                                        </args>-->
+                            <!-- jvmArgs are optional -->
+                            <!--                            <jvmArgs>
+                                                            <jvmArg>-Xmx1280m</jvmArg>
+                                                            <jvmArg></jvmArg>
+                                                        </jvmArgs>-->
+                        </launcher>
+                        <launcher>
+                            <id>MyActorSystem</id>
+                            <mainClass>org.akka.essentials.scala.hotswap.example.MyActorSystem</mainClass>
+                        </launcher>
+                    </launchers>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>scala-compile-first</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>scala-test-compile</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.scalatest</groupId>
+                <artifactId>scalatest-maven-plugin</artifactId>
+                <version>1.0-RC2</version>
+                <configuration>
+                    <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                    <junitxml>.</junitxml>
+                    <filereports>WDF TestSuite.txt</filereports>
+                    <stdout>${scalatest.output}</stdout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>test</id>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <executable>scala</executable>
+                    <arguments>
+                        <argument>-classpath</argument>
+                        <classpath/>
+                        <argument>org.akka.essentials.scala.future.example.TestActorSystem</argument>
+                    </arguments>
                 </configuration>
             </plugin>
             <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
                 <configuration>
-                    <includes>
-                        <include>**/*Tests.java</include>
-                    </includes>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF8</encoding>
                 </configuration>
             </plugin>
         </plugins>
