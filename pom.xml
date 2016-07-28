@@ -10,7 +10,10 @@
 
     <!-- Shared version number properties -->
     <properties>
+        <configuration.source>1.7</configuration.source>
+        <configuration.target>1.7</configuration.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <compiler.version>2.5.1</compiler.version>
         <org.springframework.version>4.0.7.RELEASE</org.springframework.version>
         <netty.version>4.0.9.Final</netty.version>
         <scala.version>2.10.4</scala.version>
@@ -128,6 +131,16 @@
 
     <build>
         <plugins>
+          <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler.version}</version>
+                <configuration>
+                    <source>${configuration.source}</source>
+                    <target>${configuration.target}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
