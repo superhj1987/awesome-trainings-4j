@@ -5,6 +5,39 @@
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+     <!--	
+      <bean id="mbServer" class="org.springframework.jmx.export.MBeanExporter">
+          <property name="autodetectModeName">
+              <value>AUTODETECT_ALL</value>
+          </property>
+      </bean>
+      <bean name="localhost:name=statusBean" class="com.github.superhj1987.trainings.jmx.Status">
+          
+      </bean>
+      -->
+    
+    <!--对于上述普通的Java类MyJavaObject，可以通过定制接口和方法列表，来暴露MBean属性或方法。例如，一个方法列表，可以在进行配置的时候指定-->
+    <!--<bean id="assembler" class="org.springframework.jmx.export.assembler.MethodNameBasedMBeanInfoAssembler">
+      <property name="managedMethods"  value="getName" />
+    </bean> 
+    
+    <bean id="assembler" class="org.springframework.jmx.export.assembler.InterfaceBasedMBeanInfoAssembler">
+      <property name="managedInterfaces">
+          <list>
+              <value>org.shirdrn.spring.jmx.selected.interfaces.SelectedMethodsInterface</value>
+          </list>
+      </property>
+    </bean>
+      
+    <bean id="exporter" class="org.springframework.jmx.export.MBeanExporter">
+      <property name="beans">
+          <map>
+              <entry key="localhost:name=statusBean"
+                       value-ref="statusBean" />
+          </map>
+      </property>
+      <property name="assembler" ref="assembler" />
+   </bean>-->
 
     <bean id="statusBean" class="com.github.superhj1987.trainings.jmx.Status"/>
 
