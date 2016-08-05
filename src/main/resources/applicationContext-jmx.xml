@@ -6,7 +6,6 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-    <!-- 每个工程各不相同 -->
     <bean id="statusBean" class="com.github.superhj1987.trainings.jmx.Status"/>
 
     <bean id="exporter" class="org.springframework.jmx.export.MBeanExporter"
