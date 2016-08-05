@@ -6,7 +6,11 @@ my code training space including some examples, some useful codes in Java.
 
 com.github.superhj1987.trainings.tomcattest.*
 
-## 二. Netty学习笔记
+## 二. 《Effective Java》相关代码
+
+com.github.superhj1987.trainings.effective_java.*
+
+## 三. Netty学习笔记
 
 com.github.superhj1987.trainings.netty.*
 
