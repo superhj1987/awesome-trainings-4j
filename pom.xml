@@ -145,27 +145,23 @@
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
                 <version>3.1.6</version>
-                <configuration>
-                    <launchers>
-                        <launcher>
-                            <id>TestActorSystem</id>
-                            <mainClass>org.akka.essentials.scala.future.example.TestActorSystem</mainClass>
-                            <!-- args are optional -->
-                            <!--                            <args>
-                                                            <arg>arg1</arg>
-                                                        </args>-->
-                            <!-- jvmArgs are optional -->
-                            <!--                            <jvmArgs>
-                                                            <jvmArg>-Xmx1280m</jvmArg>
-                                                            <jvmArg></jvmArg>
-                                                        </jvmArgs>-->
-                        </launcher>
-                        <launcher>
-                            <id>MyActorSystem</id>
-                            <mainClass>org.akka.essentials.scala.hotswap.example.MyActorSystem</mainClass>
-                        </launcher>
-                    </launchers>
-                </configuration>
+                <!--<configuration>-->
+                    <!--<launchers>-->
+                        <!--<launcher>-->
+                            <!--<id></id>-->
+                            <!--<mainClass></mainClass>-->
+                            <!--&lt;!&ndash; args are optional &ndash;&gt;-->
+                            <!--&lt;!&ndash;                            <args>-->
+                                                            <!--<arg>arg1</arg>-->
+                                                        <!--</args>&ndash;&gt;-->
+                            <!--&lt;!&ndash; jvmArgs are optional &ndash;&gt;-->
+                            <!--&lt;!&ndash;                            <jvmArgs>-->
+                                                            <!--<jvmArg>-Xmx1280m</jvmArg>-->
+                                                            <!--<jvmArg></jvmArg>-->
+                                                        <!--</jvmArgs>&ndash;&gt;-->
+                        <!--</launcher>-->
+                    <!--</launchers>-->
+                <!--</configuration>-->
                 <executions>
                     <execution>
                         <id>scala-compile-first</id>
@@ -191,7 +187,7 @@
                 <configuration>
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                     <junitxml>.</junitxml>
-                    <filereports>WDF TestSuite.txt</filereports>
+                    <filereports>TestSuite.txt</filereports>
                     <stdout>${scalatest.output}</stdout>
                 </configuration>
                 <executions>
@@ -212,7 +208,7 @@
                     <arguments>
                         <argument>-classpath</argument>
                         <classpath/>
-                        <argument>org.akka.essentials.scala.future.example.TestActorSystem</argument>
+                        <argument></argument>
                     </arguments>
                 </configuration>
             </plugin>
