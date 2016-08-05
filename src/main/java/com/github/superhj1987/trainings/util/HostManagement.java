@@ -5,7 +5,6 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 /**
- * Զ����������
  * @author Bryant Hang
  *
  */
@@ -29,10 +28,8 @@ public class HostManagement {
 			DatagramSocket socket = new DatagramSocket();
 			socket.send(packet);
 			socket.close();
-			System.out.println("Wake on LAN packet sent ��Զ����������ɹ�");
 			return true;
 		} catch (Exception e) {
-			System.out.print("fail");
 			return false;
 		}
 	}
