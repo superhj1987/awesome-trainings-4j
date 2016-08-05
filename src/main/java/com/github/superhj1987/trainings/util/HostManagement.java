@@ -9,6 +9,12 @@ import java.net.InetAddress;
  *
  */
 public class HostManagement {
+    /**
+     * 启动指定mac地址的主机
+     *
+     * @param mac
+     * @return
+     */
 	public boolean powerOnHost(String mac) {
 
 		String macStr = mac;
@@ -22,7 +28,7 @@ public class HostManagement {
 			for (int i = 6; i < bytes.length; i += macBytes.length)
 				System.arraycopy(macBytes, 0, bytes, i, macBytes.length);
 
-			InetAddress addr = InetAddress.getByName("10.150.0.255");// �㲥
+			InetAddress addr = InetAddress.getByName("10.150.0.255");
 			DatagramPacket packet = new DatagramPacket(bytes, bytes.length,
 					addr, 40000);
 			DatagramSocket socket = new DatagramSocket();
@@ -33,7 +39,13 @@ public class HostManagement {
 			return false;
 		}
 	}
-	
+
+    /**
+     * 根据mac字符串获取mac字节
+     *
+     * @param macStrsrc
+     * @return
+     */
 	public byte[] getMacBytes(String macStrsrc) {
 		byte bytes[] = new byte[6];
 		String hex[] = macStrsrc.split("-");
@@ -49,9 +61,5 @@ public class HostManagement {
 		}
 		return bytes;
 	}
-	
-	public static void main(String args[]){
-		new HostManagement().powerOnHost("00-21-85-6D-50-62");
-		new HostManagement().powerOnHost("00-21-85-6D-50-5D");
-	}
+
 }
