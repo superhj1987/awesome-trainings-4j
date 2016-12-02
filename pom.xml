@@ -139,12 +139,37 @@
             <version>1.15</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.3.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jctools</groupId>
+            <artifactId>jctools-core</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.netflix.hystrix/hystrix-core -->
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-core</artifactId>
+            <version>1.5.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.191</version>
+        </dependency>
+
     </dependencies>
 
 
     <build>
         <plugins>
-          <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${compiler.version}</version>
@@ -159,21 +184,21 @@
                 <artifactId>scala-maven-plugin</artifactId>
                 <version>3.1.6</version>
                 <!--<configuration>-->
-                    <!--<launchers>-->
-                        <!--<launcher>-->
-                            <!--<id></id>-->
-                            <!--<mainClass></mainClass>-->
-                            <!--&lt;!&ndash; args are optional &ndash;&gt;-->
-                            <!--&lt;!&ndash;                            <args>-->
-                                                            <!--<arg>arg1</arg>-->
-                                                        <!--</args>&ndash;&gt;-->
-                            <!--&lt;!&ndash; jvmArgs are optional &ndash;&gt;-->
-                            <!--&lt;!&ndash;                            <jvmArgs>-->
-                                                            <!--<jvmArg>-Xmx1280m</jvmArg>-->
-                                                            <!--<jvmArg></jvmArg>-->
-                                                        <!--</jvmArgs>&ndash;&gt;-->
-                        <!--</launcher>-->
-                    <!--</launchers>-->
+                <!--<launchers>-->
+                <!--<launcher>-->
+                <!--<id></id>-->
+                <!--<mainClass></mainClass>-->
+                <!--&lt;!&ndash; args are optional &ndash;&gt;-->
+                <!--&lt;!&ndash;                            <args>-->
+                <!--<arg>arg1</arg>-->
+                <!--</args>&ndash;&gt;-->
+                <!--&lt;!&ndash; jvmArgs are optional &ndash;&gt;-->
+                <!--&lt;!&ndash;                            <jvmArgs>-->
+                <!--<jvmArg>-Xmx1280m</jvmArg>-->
+                <!--<jvmArg></jvmArg>-->
+                <!--</jvmArgs>&ndash;&gt;-->
+                <!--</launcher>-->
+                <!--</launchers>-->
                 <!--</configuration>-->
                 <executions>
                     <execution>
