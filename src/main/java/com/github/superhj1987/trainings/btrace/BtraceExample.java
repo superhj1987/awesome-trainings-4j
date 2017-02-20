@@ -1,13 +1,11 @@
 package com.github.superhj1987.trainings.btrace;
 
+import com.sun.btrace.AnyType;
 import com.sun.btrace.annotations.*;
 
-import static com.sun.btrace.BTraceUtils.*;
-import static sun.plugin.javascript.navig.JSType.Location;
-
-import com.sun.btrace.AnyType;
-
 import java.lang.reflect.Field;
+
+import static com.sun.btrace.BTraceUtils.*;
 
 
 /**
