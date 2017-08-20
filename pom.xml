@@ -10,8 +10,8 @@
 
     <!-- Shared version number properties -->
     <properties>
-        <configuration.source>1.7</configuration.source>
-        <configuration.target>1.7</configuration.target>
+        <configuration.source>1.8</configuration.source>
+        <configuration.target>1.8</configuration.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <compiler.version>3.1</compiler.version>
         <org.springframework.version>4.0.7.RELEASE</org.springframework.version>
@@ -176,6 +176,24 @@
             <groupId>com.sun.tools.btrace</groupId>
             <artifactId>btrace-agent</artifactId>
             <version>1.2.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.shekhargulati</groupId>
+            <artifactId>strman</artifactId>
+            <version>0.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>tech.tablesaw</groupId>
+            <artifactId>tablesaw</artifactId>
+            <version>0.8.0</version>
         </dependency>
 
     </dependencies>
