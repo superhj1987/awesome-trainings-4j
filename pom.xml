@@ -190,10 +190,26 @@
             <version>18.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/tech.tablesaw/tablesaw-core -->
         <dependency>
             <groupId>tech.tablesaw</groupId>
-            <artifactId>tablesaw</artifactId>
-            <version>0.8.0</version>
+            <artifactId>tablesaw-core</artifactId>
+            <version>0.9.5</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.deeplearning4j/deeplearning4j-core -->
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>deeplearning4j-core</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.nd4j/nd4j-native -->
+        <dependency>
+            <groupId>org.nd4j</groupId>
+            <artifactId>nd4j-native</artifactId>
+            <version>0.9.1</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
