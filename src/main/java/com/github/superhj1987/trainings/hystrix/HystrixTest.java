@@ -6,8 +6,10 @@ package com.github.superhj1987.trainings.hystrix;
 
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
+import rx.functions.Action1;
 
 import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -16,7 +18,16 @@ import java.util.concurrent.ExecutionException;
 public class HystrixTest {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        System.out.println(new CommandHelloWorld("World").queue().get());
+        CountDownLatch countDownLatch = new CountDownLatch(1);
+
+        new CommandHelloWorld("").toObservable().subscribe(s -> {
+            countDownLatch.countDown();
+            System.out.println("aaa");
+        });
+
+
+        System.out.println("bbb");
+        countDownLatch.await();
     }
 }
 
@@ -25,12 +36,14 @@ class CommandHelloWorld extends HystrixCommand<String> {
     private final String name;
 
     public CommandHelloWorld(String name) {
-        super(HystrixCommandGroupKey.Factory.asKey("ExampleGroup"), 1000);
+        super(HystrixCommandGroupKey.Factory.asKey("ExampleGroup"), 20000);
         this.name = name;
     }
 
     @Override
-    protected String run() throws IOException {
+    protected String run() throws IOException, InterruptedException {
+        Thread.sleep(10000);
+
         return this.name;
     }
 
