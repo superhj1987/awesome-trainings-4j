@@ -1,7 +1,6 @@
 package com.github.superhj1987.trainings.kt
 
 import io.vertx.core.AbstractVerticle
-import org.bytedeco.javacpp.RealSense.context
 import io.vertx.core.Vertx
 import io.vertx.core.DeploymentOptions
 import io.vertx.core.json.JsonObject
