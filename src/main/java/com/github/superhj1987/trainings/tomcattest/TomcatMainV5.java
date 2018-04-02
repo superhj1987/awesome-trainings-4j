@@ -1,6 +1,7 @@
 package com.github.superhj1987.trainings.tomcattest;
 
 import org.apache.catalina.connector.Connector;
+import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.core.StandardEngine;
 import org.apache.catalina.core.StandardHost;
 import org.apache.catalina.core.StandardService;
@@ -15,11 +16,17 @@ import org.apache.catalina.startup.HostConfig;
 public class TomcatMainV5 {
     public static void main(String args[]) throws Exception{
         //设置基目录
-        System.setProperty("catalina.base", "/data/tomcattest/");
+        System.setProperty("catalina.base", "/Users/BryantHang/data/tomcattest/");
 
         // Connector
         Connector connector = new Connector("HTTP/1.1");
         connector.setPort(8090);
+
+        StandardContext context = new StandardContext();
+        context.setName("/gb");
+        context.setDisplayName("gitbucket");
+        context.setPath("/gb");
+        context.setDocBase("/Users/BryantHang/Programming/server-software/apache-tomcat-7.0.68/webapps/gitbucket");
 
         // 请求处理器(Engine + Host)
         // Host
@@ -28,6 +35,8 @@ public class TomcatMainV5 {
         standardHost.setAppBase("webapps");
         // HostConfig负责解析Context配置，并将Context加入到Host中，
         standardHost.addLifecycleListener(new HostConfig());
+        standardHost.addChild(context);
+
         // Engine
         StandardEngine standardEngine = new StandardEngine();
         standardEngine.setName("Catalina");
