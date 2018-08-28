@@ -1,4 +1,4 @@
-package com.github.superhj1987.trainings.kt
+package me.rowkey.training.vertx
 
 import io.vertx.core.AbstractVerticle
 import io.vertx.core.Vertx
@@ -25,7 +25,10 @@ class MainVerticle : AbstractVerticle() {
 }
 
 fun main(args: Array<String>) {
+    var str1 : String = "a"
+    val str2 : String
+    str2 = "b"
     val vertx = Vertx.vertx()
     val options = DeploymentOptions().setConfig(JsonObject().put("http.port", 8080))
-    vertx.deployVerticle("com.github.superhj1987.trainings.kt.MainVerticle",options)
+    vertx.deployVerticle("me.rowkey.training.vertx.MainVerticle",options)
 }
