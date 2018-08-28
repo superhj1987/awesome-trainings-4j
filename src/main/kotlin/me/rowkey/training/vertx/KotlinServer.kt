@@ -25,9 +25,6 @@ class MainVerticle : AbstractVerticle() {
 }
 
 fun main(args: Array<String>) {
-    var str1 : String = "a"
-    val str2 : String
-    str2 = "b"
     val vertx = Vertx.vertx()
     val options = DeploymentOptions().setConfig(JsonObject().put("http.port", 8080))
     vertx.deployVerticle("me.rowkey.training.vertx.MainVerticle",options)
