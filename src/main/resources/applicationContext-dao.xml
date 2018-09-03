@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:sharding="http://shardingsphere.io/schema/shardingsphere/sharding"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd http://shardingsphere.io/schema/shardingsphere/sharding http://shardingsphere.io/schema/shardingsphere/sharding/sharding.xsd">
     <!--require db.properties:
@@ -12,7 +12,7 @@
     -->
 
     <bean id="testG" class="io.shardingsphere.core.keygen.DefaultKeyGenerator"/>
-    <bean id="dataEqualizaAlgorithm" class="com.github.superhj1987.trainings.orm.DataEqualizaAlgorithm"/>
+    <bean id="dataEqualizaAlgorithm" class="me.rowkey.trainings.orm.DataEqualizaAlgorithm"/>
     <sharding:standard-strategy id="datasourceStrategy" sharding-column="uid"
                                 precise-algorithm-ref="dataEqualizaAlgorithm"/>
 
