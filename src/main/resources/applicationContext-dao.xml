@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sharding="http://shardingsphere.io/schema/shardingsphere/sharding"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://shardingsphere.io/schema/shardingsphere/sharding http://shardingsphere.io/schema/shardingsphere/sharding/sharding.xsd">
+    <!--require db.properties:
+        mysql.url
+        mysql.slaveUrl
+        mysql.user
+        mysql.pwd
+    -->
+
+    <bean id="testG" class="io.shardingsphere.core.keygen.DefaultKeyGenerator"/>
+    <bean id="dataEqualizaAlgorithm" class="com.github.superhj1987.trainings.orm.DataEqualizaAlgorithm"/>
+    <sharding:standard-strategy id="datasourceStrategy" sharding-column="uid"
+                                precise-algorithm-ref="dataEqualizaAlgorithm"/>
+
+    <sharding:data-source id="shardingDataSource">
+        <sharding:sharding-rule data-source-names="datasource,datasource0,datasource1"
+                                default-data-source-name="datasource">
+            <sharding:table-rules>
+                <sharding:table-rule logic-table="test_user"
+                                     actual-data-nodes="datasource${0..1}.test_user"
+                                     database-strategy-ref="datasourceStrategy"/>
+
+            </sharding:table-rules>
+        </sharding:sharding-rule>
+        <sharding:props>
+            <prop key="sql.show">true</prop>
+        </sharding:props>
+    </sharding:data-source>
+
+    <bean id="datasource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://xxx/test"/>
+        <property name="username" value="xxx"/>
+        <property name="password" value="xxx"/>
+        <property name="maxWaitMillis" value="${mysql.maxWaitMillis}"/>
+        <property name="maxTotal" value="${mysql.maxTotal}"/>
+        <property name="maxIdle" value="${mysql.maxIdle}"/>
+        <property name="minIdle" value="${mysql.minIdle}"/>
+        <property name="initialSize" value="${mysql.initialSize}"/>
+        <property name="defaultQueryTimeout" value="${mysql.defaultQueryTimeout}"/>
+        <property name="connectionProperties" value="${mysql.connectionProperties}"/>
+
+    </bean>
+
+    <!--sharding-jdbc -->
+    <bean id="datasource0" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://xxx/test"/>
+        <property name="username" value="xxx"/>
+        <property name="password" value="xxx"/>
+        <property name="maxWaitMillis" value="${mysql.maxWaitMillis}"/>
+        <property name="maxTotal" value="${mysql.maxTotal}"/>
+        <property name="maxIdle" value="${mysql.maxIdle}"/>
+        <property name="minIdle" value="${mysql.minIdle}"/>
+        <property name="initialSize" value="${mysql.initialSize}"/>
+        <property name="defaultQueryTimeout" value="${mysql.defaultQueryTimeout}"/>
+        <property name="connectionProperties" value="${mysql.connectionProperties}"/>
+    </bean>
+    <bean id="datasource1" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://xxx/test"/>
+        <property name="username" value="xxx"/>
+        <property name="password" value="xxx"/>
+        <property name="maxWaitMillis" value="${mysql.maxWaitMillis}"/>
+        <property name="maxTotal" value="${mysql.maxTotal}"/>
+        <property name="maxIdle" value="${mysql.maxIdle}"/>
+        <property name="minIdle" value="${mysql.minIdle}"/>
+        <property name="initialSize" value="${mysql.initialSize}"/>
+        <property name="defaultQueryTimeout" value="${mysql.defaultQueryTimeout}"/>
+        <property name="connectionProperties" value="${mysql.connectionProperties}"/>
+    </bean>
+
+
+</beans>

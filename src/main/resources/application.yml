@@ -10,3 +10,12 @@ spring:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
+
+mysql:
+  maxWaitMillis: 5000
+  maxTotal: 50
+  maxIdle: 20
+  minIdle: 5
+  initialSize: 10
+  defaultQueryTimeout: 5
+  connectionProperties: connectTimeout=3000;socketTimeout=3000
