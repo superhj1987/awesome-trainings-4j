@@ -6,7 +6,7 @@ import strman.Strman;
 /**
  * Created by Bryant.Hang on 2017/8/17.
  */
-public class StrmanTest {
+public class StrmanExample {
 
     public static void main(String[] args) {
         Strman.base64Decode("testName");

@@ -14,7 +14,7 @@ public class HostManagement {
      * @param mac
      * @return
      */
-    public boolean powerOnHost(String mac) {
+    public static boolean powerOnHost(String mac) {
 
         String macStr = mac;
 
@@ -45,7 +45,7 @@ public class HostManagement {
      * @param macStrsrc
      * @return
      */
-    public byte[] getMacBytes(String macStrsrc) {
+    public static byte[] getMacBytes(String macStrsrc) {
         byte bytes[] = new byte[6];
         String hex[] = macStrsrc.split("-");
         if (hex.length != 6)
