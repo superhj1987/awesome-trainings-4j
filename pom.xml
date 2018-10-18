@@ -28,7 +28,7 @@
         <main.basedir>${basedir}/../..</main.basedir>
         <m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
         <kotlin.version>1.2.61</kotlin.version>
-        <vertx.version>3.5.1</vertx.version>
+        <vertx.version>3.5.4</vertx.version>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
     </properties>
 
