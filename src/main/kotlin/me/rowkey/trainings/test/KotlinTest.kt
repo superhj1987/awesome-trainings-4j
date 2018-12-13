@@ -44,14 +44,20 @@ fun main(args: Array<String>) {
     val x: Int = 20;
 
     when (x) {
-        1 -> print("x == 1")
-        2 -> print("x == 2")
-        3, 4 -> print("x == 3 or x == 4")
-        in 10..99999 -> print("x > 10")
+        1 -> println("x == 1")
+        2 -> println("x == 2")
+        3, 4 -> println("x == 3 or x == 4")
+        in 10..99999 -> println("x > 10")
         else -> { // 注意这个块
-            print("x is neither 1 nor 2")
+            println("x is neither 1 nor 2")
         }
     }
+
+    val p by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        println("computed!")
+        "Hello"
+    }
+    println(p)
 
 //    when {
 //        x.isOdd() -> print("x is odd")
