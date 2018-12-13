@@ -53,6 +53,12 @@ fun main(args: Array<String>) {
         }
     }
 
+    val p by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        println("computed!")
+        "Hello"
+    }
+    println(p)
+
 //    when {
 //        x.isOdd() -> print("x is odd")
 //        x.isEven() -> print("x is even")
